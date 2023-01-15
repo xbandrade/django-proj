@@ -1,2 +1,9 @@
+*.log
+*.pot
+*.pyc
+__pycache__
+.pytest_cache
 venv
-test*
+db.sqlite3
+media
+*.bak
