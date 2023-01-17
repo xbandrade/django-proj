@@ -1,0 +1,18 @@
+{% include 'recipes/partials/head.html' %}
+
+<body>
+    {% include 'recipes/partials/header.html' %}
+    {% include 'recipes/partials/search.html' %}
+
+    <main class="main-content container">
+        <div class="main-content main-content-list container">
+            {% for name, r in info %}
+                {% include 'recipes/partials/recipe.html' %}
+            {% endfor %}
+        </div>
+    </main>
+
+    {% include 'recipes/partials/footer.html' %}
+</body>
+
+</html>
