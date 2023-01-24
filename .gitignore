@@ -7,3 +7,4 @@ venv
 db.sqlite3
 media
 *.bak
+/static
