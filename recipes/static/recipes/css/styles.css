@@ -263,3 +263,32 @@ h1, h2, h3, h4, h5, h6 {
 .main-footer a:hover {
     filter: brightness(.8);
 }
+
+.prep-steps h1,
+.prep-steps h2,
+.prep-steps h3,
+.prep-steps h4,
+.prep-steps h5,
+.prep-steps h6,
+.prep-steps p,
+.prep-steps pre {
+    margin: 2rem 0;
+}
+
+.prep-steps ol,
+.prep-steps ul {
+    margin: 2rem;
+    padding: 0 2rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.m-x {
+    margin: 0 var(--spacing-gutter-medium);
+}
+
+.m-y {
+    margin: var(--spacing-gutter-medium) 0;
+}
