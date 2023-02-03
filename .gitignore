@@ -2,8 +2,8 @@
 *.pot
 *.pyc
 __pycache__
-.pytest_cache
 venv
+*cache/
 db.sqlite3
 media
 *.bak
