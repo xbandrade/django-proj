@@ -8,3 +8,5 @@ db.sqlite3
 media
 *.bak
 /static
+htmlcov
+.coverage
