@@ -1,11 +1,9 @@
 from unittest.mock import patch
 
-from django.test import RequestFactory
 from django.urls import reverse
 
-from recipes.models import Recipe
 from recipes.tests.test_recipe_base import RecipeTestBase
-from utils.pagination import make_pagination, make_pagination_range
+from utils.pagination import make_pagination_range
 
 
 class PaginationTest(RecipeTestBase):
@@ -76,7 +74,7 @@ class PaginationTest(RecipeTestBase):
         )['pagination']
         self.assertEqual([17, 18, 19, 20], pagination)
 
-    def test_non_int_pages_redirect_to_page_1(self):
+    def test_invalid_page_query_redirects_to_page_1(self):
         for i in range(9):
             kwargs = {'author_data': {'username': f'user{i}'},
                       'slug': f'slug{i}'}
@@ -84,5 +82,4 @@ class PaginationTest(RecipeTestBase):
         with patch('recipes.views.PER_PAGE', new=3):
             page = {'page': 'not-int'}
             response = self.client.get(reverse('recipes:home'), page)
-            pagination_range = response.context['pagination_range']
-            self.assertEqual(pagination_range['current_page'], 1)
+            self.assertEqual(response.context['recipes'].number, 1)
