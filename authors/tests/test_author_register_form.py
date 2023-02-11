@@ -22,7 +22,7 @@ class AuthorRegisterFormUnitTest(TestCase):
         self.assertEqual(current, placeholder)
 
     @parameterized.expand([
-        ('email',  'The email must be valid'),
+        ('email',  'Enter a valid email'),
         ('password', (
             'Password must contain at least one uppercase character, '
             'one lowercase character and one number. The length should be'
@@ -63,9 +63,9 @@ class AuthorRegisterFormIntegrationTest(DjangoTestCase):
         return super().setUp(*args, **kwargs)
 
     @parameterized.expand([
-        ('username', 'This field is required'),
-        ('first_name', 'Enter your first name'),
-        ('last_name', 'Enter your last name'),
+        ('username', 'Username is required'),
+        ('first_name', 'First name cannot be empty'),
+        ('last_name', 'Last name cannot be empty'),
         ('password', 'Password must not be empty'),
         ('password2', 'Please repeat your password'),
         ('email', 'Email is required'),

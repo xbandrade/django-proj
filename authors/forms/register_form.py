@@ -20,7 +20,7 @@ class RegisterForm(forms.ModelForm):
         help_text=('Username must have letters, numbers or symbols. '
                    'The length should be between 4 and 150 characters.'),
         error_messages={
-            'required': 'This field is required',
+            'required': 'Username is required',
             'min_length': 'Username must have at least 4 characters',
             'max_length': 'Username must have 150 characters or less',
         },
@@ -28,25 +28,26 @@ class RegisterForm(forms.ModelForm):
     )
     first_name = forms.CharField(
         error_messages={
-            'required': 'Enter your first name',
+            'required': 'First name cannot be empty',
         },
         required=True,
         label='First Name',
     )
     last_name = forms.CharField(
         error_messages={
-            'required': 'Enter your last name',
+            'required': 'Last name cannot be empty',
         },
         required=True,
         label='Last Name',
     )
     email = forms.EmailField(
         error_messages={
-            'required': 'Email is required'
+            'required': 'Email is required',
+            'invalid': 'The email must be valid',
         },
         required=True,
         label='Email',
-        help_text='The email must be valid'
+        help_text='Enter a valid email',
     )
     password = forms.CharField(
         required=True,

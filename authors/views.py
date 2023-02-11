@@ -31,7 +31,6 @@ def register_create(request):
         messages.success(request, 'User has been created, please log in')
         del request.session['register_form_data']
         return redirect(reverse('authors:login'))
-
     context = {
         'form': form,
     }
@@ -70,9 +69,10 @@ def login_create(request):
 @login_required(login_url='authors:login', redirect_field_name='next')
 def logout_view(request):
     if not request.POST:
-        return redirect(reverse('authors:login'))
+        messages.error(request, 'Invalid logout request')
     if request.POST.get('username') != request.user.username:
-        return redirect(reverse('authors:login'))
-
-    logout(request)
+        messages.error(request, 'Invalid logout user')
+    else:
+        logout(request)
+        messages.error(request, 'Logged out successfully')
     return redirect(reverse('authors:login'))
