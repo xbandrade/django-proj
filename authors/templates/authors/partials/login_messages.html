@@ -1,0 +1,22 @@
+{% if user.is_authenticated %}
+    <div class="login-message">
+        You are logged in as {{ request.user.username }}
+        <div class="author-buttons">
+            <div class="form-login-button">
+                <a href="{% url 'authors:dashboard' %}"><button>Your Recipes</button></a>
+                <a href="{% url 'authors:dashboard_recipe_create' %}"><button>Create Recipe</button></a>
+            </div>
+            <form class="inline-form" action="{% url 'authors:logout' %}" method='POST'>
+                {% csrf_token %}
+                <input type="hidden" name="username" value="{{ request.user.username }}">
+                <div class="form-login-button">
+                    <button type="submit">
+                        Logout
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% else %}
+    <h2>Login</h2>
+{% endif %}
