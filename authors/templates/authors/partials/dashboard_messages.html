@@ -1,0 +1,9 @@
+{% if user.is_authenticated %}
+    <div class="author-buttons">
+        <div class="dashboard-profile">
+            <a href="{% url 'authors:dashboard_recipe_create' %}"><button>Create Recipe</button></a>
+            </div>
+    </div>
+{% else %}
+    <h2>Login</h2>
+{% endif %}

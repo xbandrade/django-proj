@@ -1,20 +1,20 @@
 <div class="recipe recipe-list-item">
     {% if recipe.cover %}
         <div class="recipe-cover">
-            <a href="{% url 'recipes:recipe' recipe.id %}">
+            <a href="{{ recipe.get_absolute_url }}">
                 <img src="{{ recipe.cover.url }}" alt="Temp">
             </a>
         </div>
     {% endif %}
     <div class="recipe-title-container">
         <h2 class="recipe-title">
-            <a href="{% url 'recipes:recipe' recipe.id %}">
+            <a href="{{ recipe.get_absolute_url }}">
                 {{ recipe.title }}
             </a>
         </h2>
     </div>
     <div class="recipe-author">
-        {% if recipe.author is not None %}
+        {% if recipe.author %}
             <span class="recipe-author-item">
                 <i class="fas fa-user"></i>
                     {% if recipe.author.first_name %}
@@ -28,9 +28,9 @@
             <i class="fas fa-calendar-alt"></i>
             {{ recipe.created_at }}
         </span>
-        {% if recipe.category is not None %}
+        {% if recipe.category %}
             <span class="recipe-author-item">
-                <a href="{%  url 'recipes:category' recipe.category.id %}">
+                <a href="{{ recipe.category.get_absolute_url }}">
                     <i class="fas fa-layer-group"></i>
                     <span>{{ recipe.category.name }}</span>
                 </a>
@@ -56,7 +56,7 @@
     </div>
     {% if not is_detail_page %}
         <footer class="recipe-footer">
-            <a class="recipe-read-more button button-dark button-full-width" href="{% url 'recipes:recipe' recipe.id %}">
+            <a class="recipe-read-more button button-dark button-full-width" href="{{ recipe.get_absolute_url }}">
                 <i class="fas fa-eye"></i>
                 <span>See more...</span>
             </a>

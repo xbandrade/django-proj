@@ -10,8 +10,8 @@ class AuthorsRegisterTest(AuthorsBaseTest):
 
     def get_form(self):
         return self.browser.find_element(
-            By.XPATH,
-            '/html/body/main/div[2]/form'
+            By.CLASS_NAME,
+            'main-form'
         )
 
     def fill_form_dummy_data(self, form):

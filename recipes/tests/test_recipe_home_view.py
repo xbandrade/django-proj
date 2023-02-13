@@ -10,7 +10,7 @@ from .test_recipe_base import RecipeTestBase
 class RecipeHomeViewTest(RecipeTestBase):
     def test_recipe_home_view_is_correct(self):
         view = resolve(reverse('recipes:home'))
-        self.assertIs(view.func, views.home)
+        self.assertIs(view.func.view_class, views.RecipeListViewHome)
 
     def test_recipe_home_view_returns_status_200(self):
         response = self.client.get(reverse('recipes:home'))
@@ -39,7 +39,7 @@ class RecipeHomeViewTest(RecipeTestBase):
 
     def test_recipe_home_is_paginated(self):
         self.make_recipe_in_batch(9)
-        with patch('recipes.views.PER_PAGE', new=3):
+        with patch('recipes.views.recipe_list_views.PER_PAGE', new=3):
             response = self.client.get(reverse('recipes:home'))
             recipes = response.context['recipes']
             paginator = recipes.paginator

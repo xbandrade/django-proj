@@ -1,12 +1,21 @@
 {% extends 'global/base.html' %}
-
-{% block title %}Recipe Edit{% endblock title %}
-
+{% block title %}
+    {% if recipe_exists %}
+        Recipe Edit
+    {% else %}
+        Recipe Create
+    {% endif %}
+{% endblock title %}
 {% block content %}
     <div class="main-content center container">
-        <h2>Dashboard Recipe Edit</h2>
+        <h2>
+            {% if recipe_exists %}
+                Dashboard Recipe Edit
+            {% else %}
+                Dashboard Recipe Create
+            {% endif %}
+        </h2>
         {% include 'global/partials/messages.html' %}
-        {% include 'authors/partials/login_messages.html' %}
         <div class="left">
             {% include 'global/partials/form.html' %}
         </div>

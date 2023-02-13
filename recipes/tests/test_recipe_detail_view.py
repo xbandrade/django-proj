@@ -7,19 +7,19 @@ from .test_recipe_base import RecipeTestBase
 
 class RecipeDetailViewTest(RecipeTestBase):
     def test_recipe_detail_view_is_correct(self):
-        view = resolve(reverse('recipes:recipe', kwargs={'id': 1}))
-        self.assertIs(view.func, views.recipe)
+        view = resolve(reverse('recipes:recipe', kwargs={'pk': 1}))
+        self.assertIs(view.func.view_class, views.RecipeDetail)
 
     def test_recipe_detail_view_returns_404_if_no_recipes(self):
         response = self.client.get(
-            reverse('recipes:recipe', kwargs={'id': 1000})
+            reverse('recipes:recipe', kwargs={'pk': 1000})
         )
         self.assertEqual(response.status_code, 404)
 
     def test_recipe_detail_template_doesnt_load_unpublished_recipe(self):
         recipe = self.make_recipe(is_published=False)  # A recipe is needed
         response = self.client.get(
-            reverse('recipes:recipe', kwargs={'id': recipe.category.id})
+            reverse('recipes:recipe', kwargs={'pk': recipe.category.id})
         )
         self.assertEqual(response.status_code, 404)
 
@@ -27,6 +27,6 @@ class RecipeDetailViewTest(RecipeTestBase):
         needed_title = 'Detail page - This loads one recipe'
         # A recipe is needed for this test
         self.make_recipe(title=needed_title)
-        response = self.client.get(reverse('recipes:recipe', kwargs={'id': 1}))
+        response = self.client.get(reverse('recipes:recipe', kwargs={'pk': 1}))
         content = response.content.decode('utf-8')
         self.assertIn(needed_title, content)

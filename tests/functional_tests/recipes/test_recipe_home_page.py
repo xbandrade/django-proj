@@ -1,3 +1,4 @@
+import os
 from unittest.mock import patch
 
 import pytest
@@ -6,16 +7,18 @@ from selenium.webdriver.common.keys import Keys
 
 from .base import RecipeBaseFunctionalTest
 
+PER_PAGE = os.environ.get('PER_PAGE', 6)
+
 
 @pytest.mark.functional_test
 class RecipeHomePageFunctionalTest(RecipeBaseFunctionalTest):
-    @patch('recipes.views.PER_PAGE', new=2)
+    @patch('recipes.views.recipe_list_views.PER_PAGE', new=2)
     def test_recipe_home_page_without_recipes_not_found_message(self):
         self.browser.get(self.live_server_url)
         body = self.browser.find_element(By.TAG_NAME, 'body')
         self.assertIn('No recipes found here!', body.text)
 
-    @patch('recipes.views.PER_PAGE', new=2)
+    @patch('recipes.views.recipe_list_views.PER_PAGE', new=2)
     def test_recipe_search_input_can_find_correct_recipes(self):
         recipes = self.make_recipe_in_batch()
         needed_title = 'This is what I need'
@@ -33,7 +36,7 @@ class RecipeHomePageFunctionalTest(RecipeBaseFunctionalTest):
             self.browser.find_element(By.CLASS_NAME, 'main-content-list').text
         )
 
-    @patch('recipes.views.PER_PAGE', new=2)
+    @patch('recipes.views.recipe_list_views.PER_PAGE', new=2)
     def test_recipe_home_pagination(self):
         self.make_recipe_in_batch()
         self.browser.get(self.live_server_url)
@@ -42,6 +45,7 @@ class RecipeHomePageFunctionalTest(RecipeBaseFunctionalTest):
             '//a[@aria-label="Go to page 2"]'
         )
         page2.click()
+        x = self.browser.find_elements(By.CLASS_NAME, 'recipe')
         self.assertEqual(
             len(self.browser.find_elements(By.CLASS_NAME, 'recipe')), 2
         )

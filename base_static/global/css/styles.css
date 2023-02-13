@@ -58,11 +58,14 @@ a {
 }
 
 body {
+    display: flex; 
+    flex-direction: column;
     font-size: 1.6rem;
     font-family: var(--font-primary);
     background: var(--color-gray-1);
-    color: var(--color-dark-text);
+    color: var(--color-dark-text); 
 }
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headings);
@@ -70,6 +73,14 @@ h1, h2, h3, h4, h5, h6 {
 
 img {
     max-width: 100%;
+}
+
+article{ 
+    flex: 1; 
+}
+
+.body-container {
+    min-height: 100vh;
 }
 
 .container {
@@ -107,7 +118,8 @@ img {
     transition: all 500ms ease-in-out;
 }
 
-.search-input, .search-button {
+.search-input, 
+.search-button {
     border: none;
     background: none;
     outline: none;
@@ -136,7 +148,8 @@ img {
     background: var(--color-white);
 }
 
-.search-form:focus-within .search-button {
+.search-form:focus-within 
+.search-button {
     color: var(--color-primary);
 }
 
@@ -264,12 +277,20 @@ img {
 }
 
 .main-footer {
+    width: 100%;
     display: flex;
     align-items: center;
+    bottom: 0;
     justify-content: space-between;
     background: var(--color-primary-dark);
     color: var(--color-white);
     padding: var(--spacing-gutter-large);
+    padding-bottom: 50px; /* adjust the height of the footer as needed */
+}
+
+.page-container {
+    min-height: 100vh;
+    padding-bottom: 50px; /* adjust the height of the footer as needed */
 }
 
 .main-footer a {
@@ -376,13 +397,37 @@ img {
     gap: calc(var(--spacing-gutter-medium) / 2) var(--spacing-gutter-medium);
 }
 
-.form-content button
+.form-content button,
+.dashboard-profile button
 {
     padding: 1rem 2rem;
     border: none;
     background: var(--color-primary-dark);
     color: var(--color-white);
 }
+
+.main-header 
+{  
+    display: flex;
+    justify-content: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex: 1;
+}
+
+.main-header button
+{
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+    border: none;
+    background: var(--color-white);
+    color: var(--color-primary-dark);
+}
+
 
 .inline-form {
     display: inline;
@@ -447,6 +492,8 @@ img {
   /* Authors */
   .login-message {
     margin: 1rem 0;
+    color: var(--color-white);
+    text-align: center;
   }
 
   .author-buttons {
