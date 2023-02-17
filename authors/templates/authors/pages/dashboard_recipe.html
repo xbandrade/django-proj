@@ -1,26 +1,24 @@
 {% extends 'global/base.html' %}
+{% load i18n %}
 {% block title %}
     {% if recipe_exists %}
-        Recipe Edit
+        {% translate 'Recipe Edit' %}
     {% else %}
-        Recipe Create
+        {% translate 'Recipe Create' %}
     {% endif %}
 {% endblock title %}
 {% block content %}
     <div class="main-content center container">
         <h2>
             {% if recipe_exists %}
-                Dashboard Recipe Edit
+                {% translate 'Dashboard - Recipe Edit' %}
             {% else %}
-                Dashboard Recipe Create
+                {% translate 'Dashboard - Recipe Create' %}
             {% endif %}
         </h2>
         {% include 'global/partials/messages.html' %}
         <div class="left">
             {% include 'global/partials/form.html' %}
         </div>
-
     </div>
-
-    
 {% endblock content %}

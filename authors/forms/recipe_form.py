@@ -2,6 +2,7 @@ from collections import defaultdict
 
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 
 from recipes.models import Recipe
 from utils.django_forms import add_attr
@@ -28,16 +29,16 @@ class AuthorRecipeForm(forms.ModelForm):
             ),
             'servings_unit': forms.Select(
                 choices=(
-                    ('Servings', 'Servings'),
-                    ('Pieces', 'Pieces'),
-                    ('Slices', 'Slices'),
+                    ('Servings', _('Servings')),
+                    ('Pieces', _('Pieces')),
+                    ('Slices', _('Slices')),
                 )
             ),
             'prep_time_unit': forms.Select(
                 choices=(
-                    ('Minutes', 'Minutes'),
-                    ('Seconds', 'Seconds'),
-                    ('Hours', 'Hours'),
+                    ('Minutes', _('Minutes')),
+                    ('Seconds', _('Seconds')),
+                    ('Hours', _('Hours')),
                 )
             )
         }
@@ -48,7 +49,7 @@ class AuthorRecipeForm(forms.ModelForm):
         title = cleaned_data.get('title')
         description = cleaned_data.get('description')
         if title == description:
-            self._my_errors['description'].append('Cannot be same as title')
+            self._my_errors['description'].append(_('Cannot be same as title'))
         if self._my_errors:
             raise ValidationError(self._my_errors)
         return super_clean
@@ -57,7 +58,7 @@ class AuthorRecipeForm(forms.ModelForm):
         title = self.cleaned_data.get('title')
         if len(title) < 5:
             self._my_errors['title'].append(
-                'Title must have at least 5 characters'
+                _('Title must have at least 5 characters')
             )
         return title
 
@@ -65,14 +66,18 @@ class AuthorRecipeForm(forms.ModelForm):
         field_name = 'prep_time'
         field_value = self.cleaned_data.get(field_name)
         if not is_positive_number(field_value):
-            self._my_errors[field_name].append('Prep time should be positive')
+            self._my_errors[field_name].append(
+                _('Prep time should be positive')
+            )
         return field_value
 
     def clean_servings(self):
         field_name = 'servings'
         field_value = self.cleaned_data.get(field_name)
         if not is_positive_number(field_value):
-            self._my_errors[field_name].append('Servings should be positive')
+            self._my_errors[field_name].append(
+                _('Servings should be positive')
+            )
         return field_value
 
     def clean_prep_steps(self):
@@ -80,6 +85,6 @@ class AuthorRecipeForm(forms.ModelForm):
         field_value = self.cleaned_data.get(field_name)
         if len(field_value) < 5:
             self._my_errors[field_name].append(
-                'Prep steps must have at least 5 characters'
+                _('Prep steps must have at least 5 characters')
             )
         return field_value

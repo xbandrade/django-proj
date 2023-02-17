@@ -1,7 +1,8 @@
+{% load i18n %}
 <form class="inline-form" action="{% url 'authors:logout' %}" method='POST'>
     {% csrf_token %}
     <input type="hidden" name="username" value="{{ request.user.username }}">
     <button type="submit">
-        Logout
+        {% translate 'Logout' %}
     </button>
 </form>

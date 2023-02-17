@@ -398,12 +398,13 @@ article{
 }
 
 .form-content button,
-.dashboard-profile button
+.dashboard button
 {
     padding: 1rem 2rem;
     border: none;
     background: var(--color-primary-dark);
     color: var(--color-white);
+    cursor: pointer;
 }
 
 .main-header 
@@ -426,6 +427,7 @@ article{
     border: none;
     background: var(--color-white);
     color: var(--color-primary-dark);
+    cursor: pointer;
 }
 
 
@@ -494,12 +496,6 @@ article{
     margin: 1rem 0;
     color: var(--color-white);
     text-align: center;
-  }
-
-  .author-buttons {
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline;
   }
 
   .authors-dashboard-container {

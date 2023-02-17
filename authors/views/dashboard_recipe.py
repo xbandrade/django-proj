@@ -4,9 +4,10 @@ from django.http import Http404
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.decorators import method_decorator
+from django.utils.translation import gettext as _
 from django.views import View
 
-from authors.forms import AuthorRecipeForm, LoginForm, RegisterForm
+from authors.forms import AuthorRecipeForm
 from recipes.models import Recipe
 
 
@@ -67,7 +68,7 @@ class DashboardRecipe(View):
             recipe.prep_steps_is_html = False
             recipe.is_published = False
             recipe.save()
-            messages.success(request, 'Recipe saved successfully')
+            messages.success(request, _('Recipe saved successfully'))
             return redirect(
                 reverse(
                     'authors:dashboard_recipe_edit',
@@ -85,5 +86,5 @@ class DashboardRecipeDelete(DashboardRecipe):
     def post(self, *args, **kwargs):
         recipe = self.get_recipe(self.request.POST.get('id'))
         recipe.delete()
-        messages.success(self.request, 'Recipe successfully deleted')
+        messages.success(self.request, _('Recipe successfully deleted'))
         return redirect(reverse('authors:dashboard'))

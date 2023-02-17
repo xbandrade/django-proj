@@ -1,9 +1,10 @@
+{% load i18n %}
 {% if user.is_authenticated %}
-    <div class="author-buttons">
-        <div class="dashboard-profile">
-            <a href="{% url 'authors:dashboard_recipe_create' %}"><button>Create Recipe</button></a>
-            </div>
+    <div class="dashboard author-dashboard">
+        <a href="{% url 'authors:dashboard_recipe_create' %}">
+            <button>{% translate 'Create Recipe' %}</button>
+        </a>
     </div>
 {% else %}
-    <h2>Login</h2>
+    <h2>{% translate 'Login' %}</h2>
 {% endif %}

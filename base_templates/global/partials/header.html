@@ -1,3 +1,4 @@
+{% load i18n %}
 <header class="main-header-container">
     <div class="main-header container">
         <div class="logo-container">
@@ -11,13 +12,13 @@
         <div class="header-buttons">
             {% if user.is_authenticated %}    
                 <div class="login-message">
-                    You are logged in as {{ request.user.username }}
+                    {% translate 'You are logged in as' %} {{ request.user.username }}
                 </div>
-                <a href="{% url 'authors:dashboard' %}"><button>Your Dashboard</button></a>
+                <a href="{% url 'authors:dashboard' %}"><button>{% translate 'Your Dashboard' %}</button></a>
                 {% include 'authors/partials/logout.html' %}
             {% else %}
-                <a href="{% url 'authors:register' %}"><button>Sign Up</button></a>
-                <a href="{% url 'authors:login' %}"><button>Login</button></a>
+                <a href="{% url 'authors:register' %}"><button>{% translate 'Sign Up' %}</button></a>
+                <a href="{% url 'authors:login' %}"><button>{% translate 'Login' %}</button></a>
             {% endif %}
         </div>
     </div>

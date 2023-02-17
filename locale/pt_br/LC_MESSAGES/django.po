@@ -1,0 +1,291 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-17 18:55-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\authors\forms\login.py:10
+msgid "Enter your username"
+msgstr "Digite seu usuário"
+
+#: .\authors\forms\login.py:11
+msgid "Enter your password"
+msgstr "Digite sua senha"
+
+#: .\authors\forms\recipe_form.py:32 .\recipes\models.py:45
+#: .\recipes\templates\recipes\partials\recipe.html:59
+msgid "Servings"
+msgstr "Porções"
+
+#: .\authors\forms\recipe_form.py:33
+msgid "Pieces"
+msgstr "Pedaços"
+
+#: .\authors\forms\recipe_form.py:34
+msgid "Slices"
+msgstr "Fatias"
+
+#: .\authors\forms\recipe_form.py:39
+msgid "Minutes"
+msgstr "Minutos"
+
+#: .\authors\forms\recipe_form.py:40
+msgid "Seconds"
+msgstr "Segundos"
+
+#: .\authors\forms\recipe_form.py:41
+msgid "Hours"
+msgstr "Horas"
+
+#: .\authors\forms\recipe_form.py:52
+msgid "Cannot be same as title"
+msgstr "Não pode ser igual ao título"
+
+#: .\authors\forms\recipe_form.py:61
+msgid "Title must have at least 5 characters"
+msgstr "Título deve conter pelo menos 5 caracteres"
+
+#: .\authors\forms\recipe_form.py:70
+msgid "Prep time should be positive"
+msgstr "Tempo de preparo deve ser positivo"
+
+#: .\authors\forms\recipe_form.py:79
+msgid "Servings should be positive"
+msgstr "Porções deve ser positivo"
+
+#: .\authors\forms\recipe_form.py:88
+msgid "Prep steps must have at least 5 characters"
+msgstr "Modo de preparo deve conter pelo menos 5 caracteres"
+
+#: .\authors\templates\authors\pages\dashboard.html:3
+#: .\authors\templates\authors\pages\dashboard.html:8
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: .\authors\templates\authors\pages\dashboard.html:11
+msgid "Your recipes"
+msgstr "Suas Receitas"
+
+#: .\authors\templates\authors\pages\dashboard.html:28
+msgid "You do not have recipes, please create one"
+msgstr "Você não tem receitas, por favor crie uma"
+
+#: .\authors\templates\authors\pages\dashboard_recipe.html:5
+msgid "Recipe Edit"
+msgstr "Editar Receita"
+
+#: .\authors\templates\authors\pages\dashboard_recipe.html:7
+#: .\authors\templates\authors\pages\dashboard_recipe_create.html:3
+msgid "Recipe Create"
+msgstr "Criar Receita"
+
+#: .\authors\templates\authors\pages\dashboard_recipe.html:14
+msgid "Dashboard - Recipe Edit"
+msgstr "Dashboard - Editar Receita"
+
+#: .\authors\templates\authors\pages\dashboard_recipe.html:16
+#: .\authors\templates\authors\pages\dashboard_recipe_create.html:7
+msgid "Dashboard - Recipe Create"
+msgstr "Dashboard - Criar Receita"
+
+#: .\authors\templates\authors\pages\login.html:3
+#: .\authors\templates\authors\partials\dashboard_messages.html:9
+#: .\base_templates\global\partials\header.html:21
+msgid "Login"
+msgstr "Login"
+
+#: .\authors\templates\authors\pages\profile.html:3
+msgid "Profile"
+msgstr "Perfil"
+
+#: .\authors\templates\authors\pages\register_view.html:3
+#: .\authors\templates\authors\pages\register_view.html:7
+msgid "Register"
+msgstr "Registrar"
+
+#: .\authors\templates\authors\partials\dashboard_messages.html:5
+msgid "Create Recipe"
+msgstr "Criar Receita"
+
+#: .\authors\templates\authors\partials\logout.html:6
+msgid "Logout"
+msgstr "Logout"
+
+#: .\authors\views\all.py:33
+msgid "User has been created, please log in"
+msgstr "Usuário criado, por favor faça login"
+
+#: .\authors\views\all.py:59
+msgid "You are logged in"
+msgstr "Você está logado"
+
+#: .\authors\views\all.py:62
+msgid "Invalid credentials"
+msgstr "Credenciais inválidas"
+
+#: .\authors\views\all.py:64
+msgid "Invalid username or password"
+msgstr "Usuário ou senha inválidos"
+
+#: .\authors\views\all.py:71
+msgid "Invalid logout request"
+msgstr "Pedido de logout inválido"
+
+#: .\authors\views\all.py:73
+msgid "Invalid logout user"
+msgstr "Usuário de logout inválido"
+
+#: .\authors\views\all.py:76
+msgid "Logged out successfully"
+msgstr "Logout realizado com sucesso"
+
+#: .\authors\views\dashboard_recipe.py:71
+msgid "Recipe saved successfully"
+msgstr "Receita salva com sucesso"
+
+#: .\authors\views\dashboard_recipe.py:89
+msgid "Recipe successfully deleted"
+msgstr "Receita deletada com sucesso"
+
+#: .\base_templates\global\base.html:9 .\recipes\models.py:104
+msgid "Recipes"
+msgstr "Receitas"
+
+#: .\base_templates\global\partials\form.html:31
+msgid "Please, fix the errors in the form"
+msgstr "Por favor, corrija os erros no formulário"
+
+#: .\base_templates\global\partials\form.html:39
+msgid "Send"
+msgstr "Enviar"
+
+#: .\base_templates\global\partials\header.html:15
+msgid "You are logged in as"
+msgstr "Você está logado como"
+
+#: .\base_templates\global\partials\header.html:17
+msgid "Your Dashboard"
+msgstr "Seu Dashboard"
+
+#: .\base_templates\global\partials\header.html:20
+msgid "Sign Up"
+msgstr "Registrar"
+
+#: .\base_templates\global\partials\search.html:8
+msgid "Search for a recipe"
+msgstr "Buscar uma receita"
+
+#: .\recipes\models.py:23 .\recipes\models.py:69
+#: .\recipes\views\recipe_list_views.py:78
+msgid "Category"
+msgstr "Categoria"
+
+#: .\recipes\models.py:24
+msgid "Categories"
+msgstr "Categorias"
+
+#: .\recipes\models.py:36
+msgid "Title"
+msgstr "Título"
+
+#: .\recipes\models.py:38
+msgid "Description"
+msgstr "Descrição"
+
+#: .\recipes\models.py:40
+msgid "Slug"
+msgstr "Slug"
+
+#: .\recipes\models.py:41 .\recipes\templates\recipes\partials\recipe.html:53
+msgid "Prep Time"
+msgstr "Tempo de Preparo"
+
+#: .\recipes\models.py:43
+msgid "Prep Time Unit"
+msgstr "Unidade de Tempo"
+
+#: .\recipes\models.py:47
+msgid "Servings Unit"
+msgstr "Unidade de Porções"
+
+#: .\recipes\models.py:49
+msgid "Prep Steps"
+msgstr "Modo de Preparo"
+
+#: .\recipes\models.py:51
+msgid "Prep Steps is HTML"
+msgstr "Modo de preparo é HTML"
+
+#: .\recipes\models.py:54
+msgid "Created at"
+msgstr "Criado em"
+
+#: .\recipes\models.py:57
+msgid "Updated at"
+msgstr "Atualizado em"
+
+#: .\recipes\models.py:60
+msgid "Is published"
+msgstr "Está publicado"
+
+#: .\recipes\models.py:64
+msgid "Cover"
+msgstr "Capa"
+
+#: .\recipes\models.py:72
+msgid "Author"
+msgstr "Autor"
+
+#: .\recipes\models.py:75
+msgid "Tags"
+msgstr "Tags"
+
+#: .\recipes\models.py:97
+msgid "Found recipes with the same title"
+msgstr "Existem receitas com o mesmo título"
+
+#: .\recipes\models.py:103
+msgid "Recipe"
+msgstr "Receita"
+
+#: .\recipes\templates\recipes\pages\home.html:4
+msgid "Home"
+msgstr "Início"
+
+#: .\recipes\templates\recipes\pages\home.html:13
+#: .\recipes\templates\recipes\pages\search.html:10
+#: .\recipes\templates\recipes\pages\tag.html:10
+#, fuzzy
+#| msgid "No recipes found"
+msgid "No recipes found here"
+msgstr "Nenhuma receita encontrada"
+
+#: .\recipes\templates\recipes\partials\recipe.html:37
+msgid "at"
+msgstr "às"
+
+#: .\recipes\templates\recipes\partials\recipe.html:69
+msgid "Read More"
+msgstr "Ver Mais"
+
+#: .\recipes\views\recipe_list_views.py:106
+msgid "Search for"
+msgstr "Busca por"
+
+#: .\recipes\views\recipe_list_views.py:170
+msgid "No recipes found"
+msgstr "Nenhuma receita encontrada"
