@@ -1,6 +1,7 @@
-from django.contrib.auth.models import User
+from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
+from authors.validators import AuthorRecipeValidator
 from recipes.models import Recipe
 from tag.models import Tag
 
@@ -17,6 +18,8 @@ class RecipeSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'title', 'description', 'author', 'category', 'tags',
             'public', 'preparation', 'tag_objects', 'tag_links',
+            'prep_time', 'prep_time_unit', 'servings', 'servings_unit',
+            'prep_steps', 'cover',
         ]
 
     public = serializers.BooleanField(source='is_published', read_only=True)
@@ -36,3 +39,24 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     def get_preparation(self, recipe):
         return f'{recipe.prep_time} {recipe.prep_time_unit}'
+
+    def validate(self, attrs):
+        if self.instance and not attrs.get('servings'):
+            attrs['servings'] = self.instance.servings
+        if self.instance and not attrs.get('prep_time'):
+            attrs['prep_time'] = self.instance.prep_time
+        super_validate = super().validate(attrs)
+        AuthorRecipeValidator(
+            data=attrs,
+            ErrorClass=serializers.ValidationError,
+        )
+        return super_validate
+
+    def save(self, **kwargs):
+        return super().save(**kwargs)
+
+    def create(self, validated_data):
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        return super().update(instance, validated_data)
