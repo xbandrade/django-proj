@@ -1,4 +1,5 @@
 import pytest
+from django.test import override_settings
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -76,6 +77,7 @@ class AuthorsRegisterTest(AuthorsBaseTest):
             self.assertIn('Passwords must match', form.text)
         self.form_field_test_with_callback(callback)
 
+    @override_settings(LANGUAGE_CODE='en-US', LANGUAGES=(('en', 'English'),))
     def test_user_valid_data_register_success(self):
         self.browser.get(self.live_server_url + '/authors/register/')
         form = self.get_form()

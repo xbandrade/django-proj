@@ -2,6 +2,8 @@ import os
 from unittest.mock import patch
 
 import pytest
+from django.test import override_settings
+from django.utils.translation import gettext_lazy as _
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
@@ -18,6 +20,7 @@ class RecipeHomePageFunctionalTest(RecipeBaseFunctionalTest):
         body = self.browser.find_element(By.TAG_NAME, 'body')
         self.assertIn('No recipes found here!', body.text)
 
+    @override_settings(LANGUAGE_CODE='en-US', LANGUAGES=(('en', 'English'),))
     @patch('recipes.views.recipe_list_views.PER_PAGE', new=2)
     def test_recipe_search_input_can_find_correct_recipes(self):
         recipes = self.make_recipe_in_batch()
@@ -25,9 +28,10 @@ class RecipeHomePageFunctionalTest(RecipeBaseFunctionalTest):
         recipes[0].title = needed_title
         recipes[0].save()
         self.browser.get(self.live_server_url)
+        search_translation = 'Search for a recipe'
         search_input = self.browser.find_element(
             By.XPATH,
-            '//input[@placeholder="Search for a recipe"]'
+            f"//input[@placeholder='{search_translation}']"
         )
         search_input.send_keys(needed_title)
         search_input.send_keys(Keys.ENTER)

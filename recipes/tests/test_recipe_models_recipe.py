@@ -13,9 +13,9 @@ class RecipeModelTest(RecipeTestBase):
         recipe = Recipe(
             category=self.make_category(name='Test Default Category'),
             author=self.make_author(username='newuser'),
-            title='Recipe Title',
+            title='Recipe Title Test 123',
             description='Recipe Description',
-            slug='recipe-slug-testing',
+            slug='recipe-slug-testing123',
             prep_time=10,
             prep_time_unit='minutes',
             servings=5,
@@ -36,23 +36,6 @@ class RecipeModelTest(RecipeTestBase):
         setattr(self.recipe, field, 'a' * (max_length + 1))
         with self.assertRaises(ValidationError):
             self.recipe.full_clean()
-
-    def test_recipe_prep_steps_is_html_is_false_by_default(self):
-        recipe = Recipe(
-            category=self.make_category(name='Test Default Category'),
-            author=self.make_author(username='newuser'),
-            title='Recipe Title',
-            description='Recipe Description',
-            slug='recipe-slug-testing',
-            prep_time=10,
-            prep_time_unit='minutes',
-            servings=5,
-            servings_unit='servings',
-            prep_steps='Recipe Prep steps',
-        )
-        recipe.full_clean()
-        recipe.save()
-        self.assertFalse(recipe.prep_steps_is_html)
 
     def test_recipe_prep_steps_is_html_is_false_by_default(self):
         recipe = self.make_recipe_no_defaults()

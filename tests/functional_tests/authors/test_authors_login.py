@@ -1,11 +1,14 @@
 import pytest
 from django.contrib.auth.models import User
+from django.test import override_settings
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from selenium.webdriver.common.by import By
 
 from .base import AuthorsBaseTest
 
 
+@override_settings(LANGUAGE_CODE='en-US', LANGUAGES=(('en', 'English'),))
 @pytest.mark.functional_test
 class AuthorsLoginTest(AuthorsBaseTest):
     def fill_username_and_password(self, form, username, password):
@@ -24,8 +27,9 @@ class AuthorsLoginTest(AuthorsBaseTest):
 
         form = self.browser.find_element(By.CLASS_NAME, 'main-form')
         self.fill_username_and_password(form, user.username, str_password)
+        login_message = 'You are logged in as'
         self.assertIn(
-            f'You are logged in as {user.username}',
+            f'{login_message} {user.username}',
             self.browser.find_element(By.TAG_NAME, 'body').text
         )
 

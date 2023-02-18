@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-17 18:55-0300\n"
+"POT-Creation-Date: 2023-02-17 20:36-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Digite seu usuário"
 msgid "Enter your password"
 msgstr "Digite sua senha"
 
-#: .\authors\forms\recipe_form.py:32 .\recipes\models.py:45
+#: .\authors\forms\recipe_form.py:32 .\recipes\models.py:48
 #: .\recipes\templates\recipes\partials\recipe.html:59
 msgid "Servings"
 msgstr "Porções"
@@ -161,7 +161,7 @@ msgstr "Receita salva com sucesso"
 msgid "Recipe successfully deleted"
 msgstr "Receita deletada com sucesso"
 
-#: .\base_templates\global\base.html:9 .\recipes\models.py:104
+#: .\base_templates\global\base.html:9 .\recipes\models.py:129
 msgid "Recipes"
 msgstr "Receitas"
 
@@ -174,6 +174,7 @@ msgid "Send"
 msgstr "Enviar"
 
 #: .\base_templates\global\partials\header.html:15
+#: .\tests\functional_tests\authors\test_authors_login.py:28
 msgid "You are logged in as"
 msgstr "Você está logado como"
 
@@ -186,79 +187,80 @@ msgid "Sign Up"
 msgstr "Registrar"
 
 #: .\base_templates\global\partials\search.html:8
+#: .\tests\functional_tests\recipes\test_recipe_home_page.py:29
 msgid "Search for a recipe"
 msgstr "Buscar uma receita"
 
-#: .\recipes\models.py:23 .\recipes\models.py:69
+#: .\recipes\models.py:26 .\recipes\models.py:72
 #: .\recipes\views\recipe_list_views.py:78
 msgid "Category"
 msgstr "Categoria"
 
-#: .\recipes\models.py:24
+#: .\recipes\models.py:27
 msgid "Categories"
 msgstr "Categorias"
 
-#: .\recipes\models.py:36
+#: .\recipes\models.py:39
 msgid "Title"
 msgstr "Título"
 
-#: .\recipes\models.py:38
+#: .\recipes\models.py:41
 msgid "Description"
 msgstr "Descrição"
 
-#: .\recipes\models.py:40
+#: .\recipes\models.py:43
 msgid "Slug"
 msgstr "Slug"
 
-#: .\recipes\models.py:41 .\recipes\templates\recipes\partials\recipe.html:53
+#: .\recipes\models.py:44 .\recipes\templates\recipes\partials\recipe.html:53
 msgid "Prep Time"
 msgstr "Tempo de Preparo"
 
-#: .\recipes\models.py:43
+#: .\recipes\models.py:46
 msgid "Prep Time Unit"
 msgstr "Unidade de Tempo"
 
-#: .\recipes\models.py:47
+#: .\recipes\models.py:50
 msgid "Servings Unit"
 msgstr "Unidade de Porções"
 
-#: .\recipes\models.py:49
+#: .\recipes\models.py:52
 msgid "Prep Steps"
 msgstr "Modo de Preparo"
 
-#: .\recipes\models.py:51
+#: .\recipes\models.py:54
 msgid "Prep Steps is HTML"
 msgstr "Modo de preparo é HTML"
 
-#: .\recipes\models.py:54
+#: .\recipes\models.py:57
 msgid "Created at"
 msgstr "Criado em"
 
-#: .\recipes\models.py:57
+#: .\recipes\models.py:60
 msgid "Updated at"
 msgstr "Atualizado em"
 
-#: .\recipes\models.py:60
+#: .\recipes\models.py:63
 msgid "Is published"
 msgstr "Está publicado"
 
-#: .\recipes\models.py:64
+#: .\recipes\models.py:67
 msgid "Cover"
 msgstr "Capa"
 
-#: .\recipes\models.py:72
+#: .\recipes\models.py:75
 msgid "Author"
 msgstr "Autor"
 
-#: .\recipes\models.py:75
+#: .\recipes\models.py:78
 msgid "Tags"
 msgstr "Tags"
 
-#: .\recipes\models.py:97
+#: .\recipes\models.py:122
 msgid "Found recipes with the same title"
 msgstr "Existem receitas com o mesmo título"
 
-#: .\recipes\models.py:103
+#: .\recipes\models.py:128
 msgid "Recipe"
 msgstr "Receita"
 
