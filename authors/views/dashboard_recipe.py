@@ -71,8 +71,7 @@ class DashboardRecipe(View):
             messages.success(request, _('Recipe saved successfully'))
             return redirect(
                 reverse(
-                    'authors:dashboard_recipe_edit',
-                    kwargs={'id': recipe.id}
+                    'authors:dashboard',
                 )
             )
         return self.render_recipe(form, recipe_exists)
