@@ -11,3 +11,4 @@ media
 htmlcov
 .coverage
 .env
+dump.json
