@@ -29,16 +29,16 @@ class AuthorRecipeForm(forms.ModelForm):
             ),
             'servings_unit': forms.Select(
                 choices=(
-                    ('Servings', _('Servings')),
-                    ('Pieces', _('Pieces')),
-                    ('Slices', _('Slices')),
+                    (_('Servings'), _('Servings')),
+                    (_('Pieces'), _('Pieces')),
+                    (_('Slices'), _('Slices')),
                 )
             ),
             'prep_time_unit': forms.Select(
                 choices=(
-                    ('Minutes', _('Minutes')),
-                    ('Seconds', _('Seconds')),
-                    ('Hours', _('Hours')),
+                    (_('Minutes'), _('Minutes')),
+                    (_('Seconds'), _('Seconds')),
+                    (_('Hours'), _('Hours')),
                 )
             )
         }
