@@ -1,4 +1,4 @@
-
+import mimetypes
 import os
 from pathlib import Path
 
@@ -7,6 +7,8 @@ from utils.environment import get_env_variable, parse_comma_sep_str_to_list
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
+mimetypes.add_type("text/css", ".css", True)
+mimetypes.add_type("application/javascript", ".js", True)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/

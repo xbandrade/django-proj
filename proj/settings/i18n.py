@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 from . import BASE_DIR
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
