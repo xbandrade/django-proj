@@ -1,11 +1,9 @@
 import os
 import string
-from collections import defaultdict
 from random import SystemRandom
 
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -116,22 +114,9 @@ class Recipe(models.Model):
         if self.cover:
             try:
                 self.resize_image(self.cover, 840)
-            except FileNotFoundError:
-                ...
+            except FileNotFoundError as e:
+                print(e)
         return saved
-
-    # def clean(self, *args, **kwargs):
-    #     error_messages = defaultdict(lambda: [])
-    #     recipe_from_db = Recipe.objects.filter(
-    #         title__iexact=self.title
-    #     ).first()
-    #     if recipe_from_db:
-    #         if recipe_from_db.pk != self.pk:
-    #             error_messages['title'].append(
-    #                 'Found recipes with the same title'
-    #             )
-    #     if error_messages:
-    #         raise ValidationError(error_messages)
 
     class Meta:
         verbose_name = _('Recipe')

@@ -1,7 +1,4 @@
 from django.contrib import admin
-from django.contrib.contenttypes.admin import GenericStackedInline
-
-from tag.models import Tag
 
 from .models import Category, Recipe
 

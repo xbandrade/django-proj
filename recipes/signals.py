@@ -1,6 +1,5 @@
 import os
 
-from django.contrib.auth import get_user_model
 from django.db.models.signals import pre_delete, pre_save
 from django.dispatch import receiver
 
@@ -10,8 +9,8 @@ from recipes.models import Recipe
 def delete_cover(instance):
     try:
         os.remove(instance.cover.path)
-    except (ValueError, FileNotFoundError):
-        ...
+    except (ValueError, FileNotFoundError) as e:
+        print(e)
 
 
 @receiver(pre_delete, sender=Recipe)
