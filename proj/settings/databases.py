@@ -4,12 +4,9 @@ import dj_database_url
 from django.conf import settings
 from dotenv import load_dotenv
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 load_dotenv()
 
-if settings.DEBUG:
+if settings.DEBUG and settings.LOCAL_RUN:
     DATABASES = {
         os.environ.get('DATABASE_ALIAS'): {
             'ENGINE': os.environ.get('DATABASE_ENGINE'),
