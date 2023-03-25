@@ -1,10 +1,12 @@
 import os
+import random
 import string
 from random import SystemRandom
 
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models
+from django.templatetags.static import static
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
@@ -84,6 +86,21 @@ class Recipe(models.Model):
 
     def get_absolute_url(self):
         return reverse('recipes:recipe', args=(self.id,))
+
+    def get_cover_url(self):
+        if self.cover and os.path.exists(
+            os.path.join(settings.MEDIA_ROOT, self.cover.url)
+        ):
+            return self.cover.url
+        else:
+            id = self.id if 0 < self.id <= 12 else random.randrange(1, 13)
+            cover_path = rf'global\img\{id}.png'
+            full_path = os.path.join(settings.STATIC_ROOT, cover_path)
+            if os.path.exists(full_path):
+                return static(cover_path)
+            else:
+                print('Static cover not found!')
+                return None
 
     @staticmethod
     def resize_image(image, new_width=840):

@@ -4,7 +4,9 @@
     {% if recipe.cover %}
         <div class="recipe-cover">
             <a href="{{ recipe.get_absolute_url }}">
-                <img src="{{ recipe.cover.url }}" alt="Temp">
+                {% if recipe.get_cover_url %}
+                    <img src="{{ recipe.get_cover_url }}" alt="Cover">
+                {% endif %}
             </a>
         </div>
     {% endif %}
