@@ -2,6 +2,8 @@
 
 🗒️ [README pt-BR](https://github.com/xbandrade/django-recipes/blob/main/README-pt-BR.md)
 
+➡️ Deploy: https://recipes-django.onrender.com
+
 ➡️ A recipe website built with Django and Django REST frameworks.
 
 ❕Home Page
