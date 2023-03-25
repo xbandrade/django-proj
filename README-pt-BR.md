@@ -1,5 +1,7 @@
 # Django Recipes
 
+➡️ Deploy: https://recipes-django.onrender.com
+
 ➡️ Um site de receitas criado com Django e Django REST frameworks.
 
 ❕Página Inicial
