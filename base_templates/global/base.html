@@ -5,7 +5,6 @@
 
 <head>   
     {% include 'global/partials/head.html' %}
-
     <title>{% block title %}{% endblock title %} | {% translate 'Recipes' %}</title>
 </head>
 
@@ -13,15 +12,11 @@
     <div class="body-container">
         {% include 'global/partials/header.html' %}
         {% include 'global/partials/search.html' %}
-
         <main class="main-content-container">
             {% block content %}{% endblock %}
-            
             {% include 'global/partials/pagination.html' %}
-            
         </main>
         {% include 'global/partials/footer.html' %}
-        <base href="{% static '/' %}">
         <script src="{% static 'global/js/scripts.js' %}"></script>
     </div>
 </body>
