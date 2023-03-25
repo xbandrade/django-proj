@@ -94,7 +94,7 @@ class Recipe(models.Model):
             return self.cover.url
         else:
             id = self.id if 0 < self.id <= 12 else random.randrange(1, 13)
-            cover_path = rf'global\img\{id}.png'
+            cover_path = os.path.join('global', 'img', f'{id}.png')
             full_path = os.path.join(settings.STATIC_ROOT, cover_path)
             if os.path.exists(full_path):
                 return static(cover_path)
