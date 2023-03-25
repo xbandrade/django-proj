@@ -29,3 +29,5 @@ ROOT_URLCONF = 'proj.urls'
 WSGI_APPLICATION = 'proj.wsgi.application'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOCAL_RUN = os.environ.get('LOCAL_RUN') == 1

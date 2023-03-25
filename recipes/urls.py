@@ -16,6 +16,8 @@ recipe_api_v2_router.register(
 
 urlpatterns = [
     path('', views.RecipeListViewHome.as_view(), name='home'),
+    path('media/<str:path>',
+         views.media, name='media'),
     path('recipes/search/',
          views.RecipeListViewSearch.as_view(), name='search'),
     path('recipes/tags/<slug:slug>/',
