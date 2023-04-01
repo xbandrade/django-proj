@@ -15,6 +15,7 @@ urlpatterns = [
     path('login/create/', views.login_create, name='login_create'),
     path('logout/', views.logout_view, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('clear/', views.clear_session, name='clear'),
     path(
         'dashboard/recipe/create/',
         views.DashboardRecipe.as_view(),

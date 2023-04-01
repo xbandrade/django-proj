@@ -1,10 +1,11 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.translation import gettext as _
+from django.views.decorators.http import require_POST
 
 from authors.forms import LoginForm, RegisterForm
 from recipes.models import Recipe
@@ -87,3 +88,10 @@ def dashboard(request):
         'recipes': recipes,
     }
     return render(request, 'authors/pages/dashboard.html', context=context)
+
+
+@require_POST
+def clear_session(request):
+    if 'register_form_data' in request.session:
+        del request.session['register_form_data']
+    return JsonResponse({'success': True})

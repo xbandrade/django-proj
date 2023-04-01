@@ -1,4 +1,4 @@
-function my_scope() {
+(() => {
     const forms = document.querySelectorAll('.form-delete');
     for (const form of forms) {
         form.addEventListener('submit', function(e) {
@@ -9,6 +9,12 @@ function my_scope() {
             }
         });
     }
-}
-
-my_scope();
+    window.addEventListener("beforeunload", function(event) {
+        fetch(clearSessionUrl, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrfToken
+            }
+        });
+    });
+})();
